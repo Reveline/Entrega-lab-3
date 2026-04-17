@@ -77,7 +77,6 @@ Pair * searchMap(HashMap * map,  char * key) {
     
     // ---- Variables ----
     long pos = hash(key, map->capacity);
-    long i = 1; // Empieza una posicion a la derecha
     
     // ---- Function ----
     if (map->buckets[pos] == NULL) return NULL;
@@ -86,7 +85,7 @@ Pair * searchMap(HashMap * map,  char * key) {
         map->current = pos;
         return map->buckets[pos];
     } else {
-        long new_pos = pos + 1;
+        long new_pos = pos + 1; // Empieza una posicion a la derecha
         while (map->buckets[new_pos] != NULL){
             if (strcmp(map->buckets[new_pos]->key, key) == 0){
                 map->current = (new_pos);
