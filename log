@@ -16,3 +16,14 @@ Fri Apr 17 07:04:39 PM UTC 2026:
  tests:  3|6
 total_score: 10/60
 2a6ff14
+Fri Apr 17 07:06:24 PM UTC 2026: 
+ hashmap.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:80:10: error: unused variable ‘i’ [-Werror=unused-variable]
+   80 |     long i = 1; // Empieza una posicion a la derecha
+      |          ^
+cc1: all warnings being treated as errors
+0ec2e13
