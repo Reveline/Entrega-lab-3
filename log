@@ -44,3 +44,14 @@ Fri Apr 17 07:08:32 PM UTC 2026:
  tests:  3|6
 total_score: 10/60
 cdc2d1f
+Fri Apr 17 07:09:31 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:75:24: error: comparison between pointer and integer [-Werror]
+   75 |     if ((map->capacity == NULL) || (map->capacity == 0)) return NULL;
+      |                        ^~
+cc1: all warnings being treated as errors
+4e000ca
