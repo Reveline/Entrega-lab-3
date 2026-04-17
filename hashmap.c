@@ -94,7 +94,8 @@ Pair * searchMap(HashMap * map,  char * key) {
                 map->current = (new_pos); // Se actualiza current
                 return map->buckets[new_pos];  // Se retorna par
             } 
-            new_pos++; // +1 a la derecha
+            new_pos++; // +1 a la derech
+            // pos = (pos + 1) % capacity Mejor implementacion en caso de ser o no circular
             if (new_pos == map->capacity) return NULL; // No hay mas datos en el mapa
         }
     } // FIN (strcmp(map->buckets[pos]->key, key) == 0) ... ELSE
