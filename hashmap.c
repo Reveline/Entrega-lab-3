@@ -83,10 +83,14 @@ Pair * searchMap(HashMap * map,  char * key) {
     if (map->buckets[pos] == NULL) return NULL;
     
     if (strcmp(map->buckets[pos]->key, key) == 0){
+        map->current = pos;
         return map->buckets[pos];
     } else {
         while (map->buckets[pos + i] != NULL){
-            if (strcmp(map->buckets[pos + i]->key, key) == 0) return map->buckets[pos];
+            if (strcmp(map->buckets[pos + i]->key, key) == 0){
+                map->current = (pos + i);
+                return map->buckets[pos];
+            } 
             i++;
         }
     } // FIN (strcmp(map->buckets[pos]->key, key) == 0) ... ELSE
