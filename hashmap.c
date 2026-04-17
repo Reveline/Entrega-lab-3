@@ -72,7 +72,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 Pair * searchMap(HashMap * map,  char * key) {   
     // Verificacion
     if ((map == NULL) || (key==NULL)) return NULL;
-    if ((map->capacity == NULL) || (map->capacity == 0)) return NULL;
+    if (map->capacity == 0) return NULL;
     // long hash( char * key, long capacity)
     
     // ---- Variables ----
