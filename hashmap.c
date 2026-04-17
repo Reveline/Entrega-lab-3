@@ -61,7 +61,7 @@ HashMap * createMap(long capacity) {
 void insertMap(HashMap * map, char * key, void * value) {
 
 }
-
+// 
 // 3. Implemente la función Pair * searchMap(HashMap * map, char * key), la cual retorna el Pair asociado a la clave ingresada. 
 // Recuerde que para buscar el par debe:
 //   a - Usar la función hash para obtener la posición donde puede encontrarse el par con la clave
@@ -70,8 +70,27 @@ void insertMap(HashMap * map, char * key, void * value) {
 // Recuerde actualizar el índice current a la posición encontrada. Recuerde que el arreglo es circular.
 
 Pair * searchMap(HashMap * map,  char * key) {   
-
-
+    // Verificacion
+    if ((map == NULL) || (key==NULL)) return NULL;
+        
+    // long hash( char * key, long capacity)
+    
+    // ---- Variables ----
+    long pos = hash(key, map->capacity);
+    long i = 1; // Empieza una posicion a la derecha
+    
+    // ---- Function ----
+    if (map->buckets[pos] == NULL) return NULL;
+    
+    if (strcmp(map->buckets[pos]->key, key) == 0){
+        return map->buckets[pos];
+    } else {
+        while (map->buckets[pos + i] != NULL){
+            if (strcmp(map->buckets[pos + i]->key, key) == 0) return map->buckets[pos];
+            i++;
+        }
+    } // FIN (strcmp(map->buckets[pos]->key, key) == 0) ... ELSE
+        
     return NULL;
 }
 
