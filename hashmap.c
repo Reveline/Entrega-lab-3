@@ -71,8 +71,10 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
     // Verificacion
-    if ((map == NULL) || (key==NULL)) return NULL;
-    if (map->capacity == 0) return NULL;
+    if ((map == NULL) || (key==NULL)) return NULL; // "Mapa" o la "Clave" no existen.
+    if (map->capacity == 0) return NULL; // "Mapa" no tiene capacidad.
+    
+    // --- Funcion Hash ---
     // long hash( char * key, long capacity)
     
     // ---- Variables ----
