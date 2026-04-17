@@ -83,17 +83,19 @@ Pair * searchMap(HashMap * map,  char * key) {
     // ---- Function ----
     if (map->buckets[pos] == NULL) return NULL;
     
-    if (strcmp(map->buckets[pos]->key, key) == 0){
-        map->current = pos;
-        return map->buckets[pos];
+    if (strcmp(map->buckets[pos]->key, key) == 0){ // Se encuentra la clave
+        map->current = pos; // Se actualiza current
+        return map->buckets[pos]; // Se retorna par
     } else {
         long new_pos = pos + 1; // Empieza una posicion a la derecha
-        while (map->buckets[new_pos] != NULL){
-            if (strcmp(map->buckets[new_pos]->key, key) == 0){
-                map->current = (new_pos);
-                return map->buckets[new_pos];
+        
+        while (map->buckets[new_pos] != NULL){ // Recorrer hasta null 
+            if (strcmp(map->buckets[new_pos]->key, key) == 0){ // Se encuentra la clave
+                map->current = (new_pos); // Se actualiza current
+                return map->buckets[new_pos];  // Se retorna par
             } 
-            new_pos++;
+            new_pos++; // +1 a la derecha
+            if (new_pos == map->capacity) return NULL; // No hay mas datos en el mapa
         }
     } // FIN (strcmp(map->buckets[pos]->key, key) == 0) ... ELSE
         
