@@ -79,3 +79,20 @@ Fri Apr 17 07:21:31 PM UTC 2026:
  tests:  3|6
 total_score: 10/60
 e4a057d
+Sat Apr 18 10:02:24 PM UTC 2026: 
+ hashmap.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘createMap’:
+hashmap.c:49:5: error: ‘new_map’ undeclared (first use in this function)
+   49 |     new_map->buckets = (Pair**)calloc(capacity,sizeof(Pair))
+      |     ^~~~~~~
+hashmap.c:49:5: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:49:61: error: expected ‘;’ before ‘map’
+   49 |     new_map->buckets = (Pair**)calloc(capacity,sizeof(Pair))
+      |                                                             ^
+      |                                                             ;
+   50 |     map->capacity = capacity;
+      |     ~~~                                                      
+a15fdb0
