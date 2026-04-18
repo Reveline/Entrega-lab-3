@@ -107,3 +107,18 @@ hashmap.c:49:5: error: ‘new_map’ undeclared (first use in this function)
       |     ^~~~~~~
 hashmap.c:49:5: note: each undeclared identifier is reported only once for each function it appears in
 9eb17d2
+Sat Apr 18 10:03:10 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘createMap’:
+hashmap.c:50:5: error: ‘map’ undeclared (first use in this function)
+   50 |     map->capacity = capacity;
+      |     ^~~
+hashmap.c:50:5: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:53:1: error: control reaches end of non-void function [-Werror=return-type]
+   53 | }
+      | ^
+cc1: all warnings being treated as errors
+98ece04
