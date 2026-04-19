@@ -189,9 +189,10 @@ void eraseMap(HashMap * map,  char * key) {
 // Recuerde actualizar el índice.
 
 Pair * firstMap(HashMap * map) {
+    // Verificacion (Existe map y este tiene elementos)
     if (map == NULL) return NULL;
-    if (map->capacity == 0) return NULL;
-    if (map->size == 0) return NULL;
+    if (map->capacity == 0 || map->size == 0) return NULL;
+    //if (map->size == 0) return NULL;
         
     long pos = 0;
     
@@ -206,7 +207,7 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-
+    
     return NULL;
 }
 
