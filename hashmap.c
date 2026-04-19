@@ -191,7 +191,7 @@ void eraseMap(HashMap * map,  char * key) {
 Pair * firstMap(HashMap * map) {
     if (map == NULL) return NULL;
     if (map->capacity == 0) return NULL;
-    if (map->size == 0) return NULL
+    if (map->size == 0) return NULL;
         
     long pos = 0;
     
