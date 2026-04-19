@@ -74,14 +74,16 @@ void insertMap(HashMap * map, char * key, void * value) {
     long first_case = pos;
     do {
         if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) {
-            if (strcmp(map->buckets[pos]->key, key) == 0) break;
+            
             // Se reserva memoria para el par
             map->buckets[pos] = createPair(key, value);
             // Se actualiza la informacion del "map"
             map->size++;
             map->current = pos;
         }
-    
+        
+        if ((map->buckets[pos]->key != NULL) && (strcmp(map->buckets[pos]->key, key) == 0)) break;
+        
         pos = (pos + 1) % map->capacity;
     } while (pos != first_case);
     
