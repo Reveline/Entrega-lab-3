@@ -65,7 +65,7 @@ HashMap * createMap(long capacity) {
 //    c - Ingrese el par en la casilla que encontró.
 // No inserte claves repetidas. Recuerde que el arreglo es circular. Recuerde actualizar la variable size.
 
-void insertMap(HashMap * map, char * key, void * value) { // TODO RECORER 
+void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyAL A CAPACIT
     // Verificacion
     if ((map == NULL) || (key==NULL) || (value==NULL)) return; // Void == return solo
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
