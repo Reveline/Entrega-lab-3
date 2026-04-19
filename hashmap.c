@@ -73,7 +73,7 @@ void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyA
     long pos = hash(key,map->capacity);
     long first_pos = pos;
     
-    while (map->buckets[pos] != NULL || map->buckets[pos]]->key != NULL){
+    while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
         if (map->buckets[pos]->key != NULL) {
             if (strcmp(map->buckets[pos]->key, key) == 0) return;
             break;

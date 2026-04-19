@@ -458,3 +458,36 @@ hashmap.c:79:13: error: break statement not within loop or switch
       |             ^~~~~
 cc1: all warnings being treated as errors
 8030a1d
+Sun Apr 19 09:43:25 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:76:61: error: expected ‘)’ before ‘]’ token
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |                                           ~                 ^
+      |                                                             )
+hashmap.c:76:61: error: expected ‘)’ before ‘]’ token
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |           ~                                                 ^
+      |                                                             )
+hashmap.c:76:61: error: expected statement before ‘]’ token
+hashmap.c:76:5: error: this ‘while’ clause does not guard... [-Werror=misleading-indentation]
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |     ^~~~~
+hashmap.c:76:62: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘while’
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |                                                              ^~
+hashmap.c:76:62: error: expected expression before ‘->’ token
+hashmap.c:76:75: error: expected statement before ‘)’ token
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |                                                                           ^
+hashmap.c:76:76: error: expected statement before ‘)’ token
+   76 |     while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+      |                                                                            ^
+hashmap.c:79:13: error: break statement not within loop or switch
+   79 |             break;
+      |             ^~~~~
+cc1: all warnings being treated as errors
+e002ba7
