@@ -195,3 +195,14 @@ Sun Apr 19 06:20:11 PM UTC 2026:
  tests:  5|4
 total_score: 20/60
 096c9c0
+Sun Apr 19 06:31:01 PM UTC 2026: 
+ hashmap.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:82:9: error: ‘first_collision_pos’ undeclared (first use in this function)
+   82 |         first_collision_pos = pos;
+      |         ^~~~~~~~~~~~~~~~~~~
+hashmap.c:82:9: note: each undeclared identifier is reported only once for each function it appears in
+7063dab
