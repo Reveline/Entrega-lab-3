@@ -73,7 +73,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     long pos = hash(key,map->capacity);
     Pair *new_data = createPair(key, value);
 
-    if (strcmp(map->buckets[pos]->key) == NULL) { // Espacio vacio
+    if (map->buckets[pos]->key == NULL) { // Espacio vacio
         map->buckets[pos] = new_data;
     }
     
