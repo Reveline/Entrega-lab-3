@@ -128,3 +128,29 @@ Sat Apr 18 10:03:41 PM UTC 2026:
  tests:  4|5
 total_score: 15/60
 e0a7998
+Sun Apr 19 06:04:42 PM UTC 2026: 
+ hashmap.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:70:63: error: ‘return’ with a value, in function returning void [-Wreturn-mismatch]
+   70 |     if ((map == NULL) || (key==NULL) || (value==NULL)) return NULL; //
+      |                                                               ^~~~
+hashmap.c:68:6: note: declared here
+   68 | void insertMap(HashMap * map, char * key, void * value) {
+      |      ^~~~~~~~~
+hashmap.c:71:36: error: ‘return’ with a value, in function returning void [-Wreturn-mismatch]
+   71 |     if (map->capacity == 0) return NULL; // "Mapa" no tiene capacidad.
+      |                                    ^~~~
+hashmap.c:68:6: note: declared here
+   68 | void insertMap(HashMap * map, char * key, void * value) {
+      |      ^~~~~~~~~
+hashmap.c:76:9: error: too few arguments to function ‘strcmp’
+   76 |     if (strcmp(map->buckets[pos]->key) == NULL) { // Espacio vacio
+      |         ^~~~~~
+In file included from test.c:3:
+/nix/store/41pf3md9zgpda9kwh6rzn5kaddf7i0lp-glibc-2.40-66-dev/include/string.h:156:12: note: declared here
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |            ^~~~~~
+287571f
