@@ -426,3 +426,9 @@ hashmap.c:77:47: error: expected expression before ‘)’ token
    77 |         if (map->buckets[pos]->key != NULL && ) {
       |                                               ^
 7adfea2
+Sun Apr 19 09:38:23 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  14|1
+total_score: 50/60
+0bb06a1
