@@ -74,6 +74,8 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     if (map->buckets[pos] == NULL) { // Espacio vacio
         map->buckets[pos] = createPair(key, value);
+        map->size++;
+        map->current = pos;
     } else {
         return;
     }
