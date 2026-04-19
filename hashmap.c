@@ -220,7 +220,9 @@ Pair * nextMap(HashMap * map) {
     }
 
     if (pos < map->current) return NULL;
-    printf("\n pos = %li, current = %li, capacidad = %li\n",pos, map->current, map->capacity);
+    // --- DEBUG ---
+    // printf("\n pos = %li, current = %li, capacidad = %li\n",pos, map->current, map->capacity);
+    
     map->current = pos;
     return map->buckets[pos];
 }
@@ -239,8 +241,24 @@ Pair * nextMap(HashMap * map) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
+    if (map == NULL) return;
+    
+    Pair** aux_bucket = map->buckets;
+    original_capacity = map->capacity
+    
+    map->capacity *= 2;
+    map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair*))
+    map->size = 0;
 
+    for (long i = 0; i < original_capacity; i++){
+        if (aux_bucket[i] != NULL || aux_bucket[i]->key != NULL){
+            // void insertMap(HashMap * map, char * key, void * value) 
+            insertMap(map, aux_bucket[i]->key, aux_bucket[i]->value);
+        }
+    }
 
+    free(aux_bucket);
+    
 }
 
 

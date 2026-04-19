@@ -370,3 +370,27 @@ Sun Apr 19 08:58:23 PM UTC 2026:
  tests:  16|1
 total_score: 50/60
 730efbd
+Sun Apr 19 09:13:26 PM UTC 2026: 
+ hashmap.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:247:5: error: ‘original_capacity’ undeclared (first use in this function)
+  247 |     original_capacity = map->capacity
+      |     ^~~~~~~~~~~~~~~~~
+hashmap.c:247:5: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:247:38: error: expected ‘;’ before ‘map’
+  247 |     original_capacity = map->capacity
+      |                                      ^
+      |                                      ;
+  248 | 
+  249 |     map->capacity *= 2;
+      |     ~~~                               
+hashmap.c:250:65: error: expected ‘;’ before ‘map’
+  250 |     map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair*))
+      |                                                                 ^
+      |                                                                 ;
+  251 |     map->size = 0;
+      |     ~~~                                                          
+8504788
