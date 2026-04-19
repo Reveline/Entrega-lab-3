@@ -244,7 +244,7 @@ void enlarge(HashMap * map) {
     if (map == NULL) return;
     
     Pair** aux_bucket = map->buckets;
-    original_capacity = map->capacity;
+    long original_capacity = map->capacity;
     
     map->capacity *= 2;
     map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair*));
