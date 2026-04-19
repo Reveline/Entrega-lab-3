@@ -154,3 +154,17 @@ In file included from test.c:3:
   156 | extern int strcmp (const char *__s1, const char *__s2)
       |            ^~~~~~
 287571f
+Sun Apr 19 06:09:46 PM UTC 2026: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:76:9: error: too few arguments to function ‘strcmp’
+   76 |     if (strcmp(map->buckets[pos]->key) == NULL) { // Espacio vacio
+      |         ^~~~~~
+In file included from test.c:3:
+/nix/store/41pf3md9zgpda9kwh6rzn5kaddf7i0lp-glibc-2.40-66-dev/include/string.h:156:12: note: declared here
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |            ^~~~~~
+5a69769

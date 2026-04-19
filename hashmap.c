@@ -67,8 +67,8 @@ HashMap * createMap(long capacity) {
 
 void insertMap(HashMap * map, char * key, void * value) {
     // Verificacion
-    if ((map == NULL) || (key==NULL) || (value==NULL)) return NULL; // 
-    if (map->capacity == 0) return NULL; // "Mapa" no tiene capacidad.
+    if ((map == NULL) || (key==NULL) || (value==NULL)) return; // Void == return solo
+    if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
     long pos = hash(key,map->capacity);
     Pair *new_data = createPair(key, value);
