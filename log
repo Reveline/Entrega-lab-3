@@ -218,3 +218,16 @@ Sun Apr 19 06:31:39 PM UTC 2026:
  tests:  4|5
 total_score: 15/60
 bcc31cc
+Sun Apr 19 06:32:03 PM UTC 2026: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:75:44: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   75 |     if ((map->buckets[pos] == NULL) && (map->key==NULL)) { // Espacio vacio
+      |                                            ^~
+hashmap.c:88:48: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘key’
+   88 |         if ((map->buckets[pos] == NULL) && (map->key==NULL)) {
+      |                                                ^~
+60ff76e
