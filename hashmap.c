@@ -66,23 +66,29 @@ HashMap * createMap(long capacity) {
 // No inserte claves repetidas. Recuerde que el arreglo es circular. Recuerde actualizar la variable size.
 
 void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyAL A CAPACIT
-    // Verificacion
+    // --- Verificacion ---
     if ((map == NULL) || (key==NULL) || (value==NULL)) return; // Void == return solo
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
+    // --- Variables ---
     long pos = hash(key,map->capacity);
     long first_pos = pos;
+
+    // --- Main ---
+    // Condicion para para el bucle: Encontrar una casilla vacia (INSERTAR), encontrar una clave invalida (INSERTAR), 
+    //                               encontrar clave repetida (CANCELAR) o recorrer todos los elementos (CANCELAR).
     
     while (map->buckets[pos] != NULL){ // Mientras la casilla actual no este vacio
-        if (map->buckets[pos]->key == NULL) break;
+        if (map->buckets[pos]->key == NULL) break; // Clave invalida
         
         if (map->buckets[pos]->key != NULL) {
-            if (strcmp(map->buckets[pos]->key, key) == 0) return;
+            if (strcmp(map->buckets[pos]->key, key) == 0) return; // Clave repetida
         }
-        pos = (pos + 1) % map->capacity;
-        if (pos == first_pos) return;
+        pos = (pos + 1) % map->capacity; // Moverse a la siguiente posicion
+        if (pos == first_pos) return; // Lista recorrida
         
     }
+    // Insercion exitosa
     map->buckets[pos] = createPair(key, value);
     // Se actualiza la informacion del "map"
     map->size++; 
@@ -100,7 +106,7 @@ void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyA
 // Recuerde actualizar el índice current a la posición encontrada. Recuerde que el arreglo es circular.
 
 Pair * searchMap(HashMap * map,  char * key) {   
-    // Verificacion
+    // ---- Verificacion ----
     if ((map == NULL) || (key==NULL)) return NULL; // "Mapa" o la "Clave" no existen.
     if (map->capacity == 0 || map->size == 0) return NULL; // "Mapa" no tiene capacidad o elementos.
     
