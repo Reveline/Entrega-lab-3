@@ -219,7 +219,7 @@ Pair * nextMap(HashMap * map) {
         pos = (pos + 1) % map->capacity;
     }
 
-    //if (pos > map->current) return NULL;
+    if (pos < map->current) return NULL;
     printf("\n pos = %li, current = %li, capacidad = %li\n",pos, map->current, map->capacity);
     map->current = pos;
     return map->buckets[pos];
