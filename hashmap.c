@@ -251,9 +251,10 @@ void enlarge(HashMap * map) {
     map->size = 0;
 
     for (long i = 0; i < original_capacity; i++){
-        if (aux_bucket[i] != NULL || aux_bucket[i]->key != NULL){
+        if (aux_bucket[i] != NULL && aux_bucket[i]->key != NULL){
             // void insertMap(HashMap * map, char * key, void * value) 
             insertMap(map, aux_bucket[i]->key, aux_bucket[i]->value);
+            free(aux_bucket[i]);
         }
     }
 
