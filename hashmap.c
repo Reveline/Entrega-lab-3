@@ -71,7 +71,21 @@ void insertMap(HashMap * map, char * key, void * value) {
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
     long pos = hash(key,map->capacity);
-
+    long first_case = pos;
+    do {
+        if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) {
+            if (strcmp(map->buckets[pos]->key, key) == 0) break;
+            // Se reserva memoria para el par
+            map->buckets[pos] = createPair(key, value);
+            // Se actualiza la informacion del "map"
+            map->size++;
+            map->current = pos;
+        }
+    
+        pos = (pos + 1) % map->capacity;
+    } while (pos != first_case);
+    
+    /* COdigo funcional segun test, pero super penca (y no comprueba clave repetida)
     if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) { // Espacio vacio
         // Se reserva memoria para el par
         map->buckets[pos] = createPair(key, value);
@@ -94,6 +108,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         }
         
     }
+    */
     
 }
 // 
