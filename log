@@ -416,3 +416,13 @@ Sun Apr 19 09:16:27 PM UTC 2026:
  tests:  17|0
 total_score: 60/60
 8887832
+Sun Apr 19 09:38:14 PM UTC 2026: 
+ hashmap.c | 41 ++++++++---------------------------------
+ 1 file changed, 8 insertions(+), 33 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:77:47: error: expected expression before ‘)’ token
+   77 |         if (map->buckets[pos]->key != NULL && ) {
+      |                                               ^
+7adfea2

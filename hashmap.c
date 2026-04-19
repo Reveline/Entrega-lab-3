@@ -71,50 +71,25 @@ void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyA
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
     long pos = hash(key,map->capacity);
-    long first_case = pos;
-    do {
-        if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) {
-            
-            // Se reserva memoria para el par
-            if (map->buckets[pos] != NULL) free(map->buckets[pos]);
-            map->buckets[pos] = createPair(key, value);
-            // Se actualiza la informacion del "map"
-            map->size++; 
-            map->current = pos;
-            return;
-        }
-        
-        if ((map->buckets[pos] != NULL) && (strcmp(map->buckets[pos]->key, key) == 0)) return;
-        
-        pos = (pos + 1) % map->capacity;
-    } while (pos != first_case);
+    long first_pos = pos;
     
-    /* COdigo funcional segun test, pero super penca (y no comprueba clave repetida)
-    if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) { // Espacio vacio
-        // Se reserva memoria para el par
-        map->buckets[pos] = createPair(key, value);
-        // Se actualiza la informacion del "map"
-        map->size++;
-        map->current = pos;
-    } else {
-        long first_collision_pos = pos;
+    while (map->buckets[pos] != NULL){
+        if (map->buckets[pos]->key != NULL && ) {
+            if (strcmp(map->buckets[pos]->key, key) == 0) return;
+            break;
+        }
         pos = (pos + 1) % map->capacity;
-        while(map->buckets[pos] != NULL){
-            if (pos == first_collision_pos) return;
-            pos = (pos + 1) % map->capacity;
-        }
-        if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) {
-            // Se reserva memoria para el par
-            map->buckets[pos] = createPair(key, value);
-            // Se actualiza la informacion del "map"
-            map->size++;
-            map->current = pos;
-        }
+        if (pos == first_pos) return;
         
     }
-    */
+    map->buckets[pos] = createPair(key, value);
+    // Se actualiza la informacion del "map"
+    map->size++; 
+    map->current = pos;
+
     
 }
+
 // 
 // 3. Implemente la función Pair * searchMap(HashMap * map, char * key), la cual retorna el Pair asociado a la clave ingresada. 
 // Recuerde que para buscar el par debe:
@@ -126,7 +101,7 @@ void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyA
 Pair * searchMap(HashMap * map,  char * key) {   
     // Verificacion
     if ((map == NULL) || (key==NULL)) return NULL; // "Mapa" o la "Clave" no existen.
-    if (map->capacity == 0) return NULL; // "Mapa" no tiene capacidad.
+    if (map->capacity == 0 || map->size == 0) return NULL; // "Mapa" no tiene capacidad o elementos.
     
     // --- Funcion Hash ---
     // long hash( char * key, long capacity)
