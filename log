@@ -320,3 +320,23 @@ Sun Apr 19 08:52:06 PM UTC 2026:
  tests:  15|2
 total_score: 40/60
 a3bc302
+Sun Apr 19 08:54:28 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘nextMap’:
+hashmap.c:223:23: error: format ‘%i’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Werror=format=]
+  223 |     printf("\n pos = %i, current = %i\n",pos, map->current);
+      |                      ~^                  ~~~
+      |                       |                  |
+      |                       int                long int
+      |                      %li
+hashmap.c:223:37: error: format ‘%i’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Werror=format=]
+  223 |     printf("\n pos = %i, current = %i\n",pos, map->current);
+      |                                    ~^         ~~~~~~~~~~~~
+      |                                     |            |
+      |                                     int          long int
+      |                                    %li
+cc1: all warnings being treated as errors
+2774f27
