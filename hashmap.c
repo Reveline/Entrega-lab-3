@@ -71,11 +71,9 @@ void insertMap(HashMap * map, char * key, void * value) {
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
     long pos = hash(key,map->capacity);
-    Pair *new_data = createPair(key, value);
 
     if (map->buckets[pos] == NULL) { // Espacio vacio
-        map->buckets[pos]->key = new_data->key;
-        map->buckets[pos]->value = new_data->value;
+        map->buckets[pos] = createPair(key, value);
     } else {
         return;
     }
