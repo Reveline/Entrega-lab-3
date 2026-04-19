@@ -394,3 +394,14 @@ hashmap.c:250:65: error: expected ‘;’ before ‘map’
   251 |     map->size = 0;
       |     ~~~                                                          
 8504788
+Sun Apr 19 09:13:38 PM UTC 2026: 
+ hashmap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:247:5: error: ‘original_capacity’ undeclared (first use in this function)
+  247 |     original_capacity = map->capacity;
+      |     ^~~~~~~~~~~~~~~~~
+hashmap.c:247:5: note: each undeclared identifier is reported only once for each function it appears in
+8735429

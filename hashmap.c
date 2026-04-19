@@ -244,10 +244,10 @@ void enlarge(HashMap * map) {
     if (map == NULL) return;
     
     Pair** aux_bucket = map->buckets;
-    original_capacity = map->capacity
+    original_capacity = map->capacity;
     
     map->capacity *= 2;
-    map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair*))
+    map->buckets = (Pair**) calloc(map->capacity, sizeof(Pair*));
     map->size = 0;
 
     for (long i = 0; i < original_capacity; i++){
