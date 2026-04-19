@@ -432,3 +432,29 @@ Sun Apr 19 09:38:23 PM UTC 2026:
  tests:  14|1
 total_score: 50/60
 0bb06a1
+Sun Apr 19 09:43:01 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:76:58: error: expected ‘)’ before ‘]’ token
+   76 |     while (map->buckets[pos] != NULL || map->buckets[pos]]->key != NULL){
+      |           ~                                              ^
+      |                                                          )
+hashmap.c:76:58: error: expected statement before ‘]’ token
+hashmap.c:76:5: error: this ‘while’ clause does not guard... [-Werror=misleading-indentation]
+   76 |     while (map->buckets[pos] != NULL || map->buckets[pos]]->key != NULL){
+      |     ^~~~~
+hashmap.c:76:59: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘while’
+   76 |     while (map->buckets[pos] != NULL || map->buckets[pos]]->key != NULL){
+      |                                                           ^~
+hashmap.c:76:59: error: expected expression before ‘->’ token
+hashmap.c:76:72: error: expected statement before ‘)’ token
+   76 |     while (map->buckets[pos] != NULL || map->buckets[pos]]->key != NULL){
+      |                                                                        ^
+hashmap.c:79:13: error: break statement not within loop or switch
+   79 |             break;
+      |             ^~~~~
+cc1: all warnings being treated as errors
+8030a1d
