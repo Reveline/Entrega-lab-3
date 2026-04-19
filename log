@@ -206,3 +206,9 @@ hashmap.c:82:9: error: ‘first_collision_pos’ undeclared (first use in this f
       |         ^~~~~~~~~~~~~~~~~~~
 hashmap.c:82:9: note: each undeclared identifier is reported only once for each function it appears in
 7063dab
+Sun Apr 19 06:31:13 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|5
+total_score: 15/60
+ba62443

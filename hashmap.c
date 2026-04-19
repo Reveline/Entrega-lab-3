@@ -79,7 +79,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->size++;
         map->current = pos;
     } else {
-        first_collision_pos = pos;
+        long first_collision_pos = pos;
         pos = (pos + 1) % map->capacity;
         while(map->buckets[pos] != NULL){
             if (pos == first_collision_pos) return;
