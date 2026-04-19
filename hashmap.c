@@ -189,26 +189,38 @@ void eraseMap(HashMap * map,  char * key) {
 // Recuerde actualizar el índice.
 
 Pair * firstMap(HashMap * map) {
-    // Verificacion (Existe map y este tiene elementos)
+    // --- Verificacion ---- (Existe map? Tiene elementos ?)
     if (map == NULL) return NULL;
     if (map->capacity == 0 || map->size == 0) return NULL;
-    //if (map->size == 0) return NULL;
-        
+    // --- Variables ----
     long pos = 0;
+
+    // --- Main ----
+
+    // Iterar mientras no exista contenedor o no exista clave
+    while (map->buckets[pos] == NULL || map->buckets[pos]->key == NULL) {
+        pos = (pos + 1) % map->capacity;
+    }
+
+    // Actualizacion del current y retorno del contenendor "Bucket"
+    map->current = pos;
+    return map->buckets[pos];
     
+}
+
+Pair * nextMap(HashMap * map) {
+    if (map == NULL) return NULL;
+    if (map->capacity == 0 || map->size == 0) return NULL;
+    if (map->buckets[map->current] == NULL) return NULL;
+    
+    long pos = (map->current) + 1;
     
     while (map->buckets[pos] == NULL || map->buckets[pos]->key == NULL) {
         pos = (pos + 1) % map->capacity;
     }
-    
+
     map->current = pos;
     return map->buckets[pos];
-    /* return NULL; */
-}
-
-Pair * nextMap(HashMap * map) {
-    
-    return NULL;
 }
 
 
