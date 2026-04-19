@@ -72,7 +72,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     long pos = hash(key,map->capacity);
 
-    if ((map->buckets[pos] == NULL) && (map->buckets[pos]->key==NULL)) { // Espacio vacio
+    if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) { // Espacio vacio
         // Se reserva memoria para el par
         map->buckets[pos] = createPair(key, value);
         // Se actualiza la informacion del "map"
@@ -85,7 +85,7 @@ void insertMap(HashMap * map, char * key, void * value) {
             if (pos == first_collision_pos) return;
             pos = (pos + 1) % map->capacity;
         }
-        if ((map->buckets[pos] == NULL) && (map->buckets[pos]->key==NULL)) {
+        if ((map->buckets[pos] == NULL) || (map->buckets[pos]->key==NULL)) {
             // Se reserva memoria para el par
             map->buckets[pos] = createPair(key, value);
             // Se actualiza la informacion del "map"
