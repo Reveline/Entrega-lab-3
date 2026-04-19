@@ -271,3 +271,22 @@ Sun Apr 19 08:29:08 PM UTC 2026:
  tests:  11|2
 total_score: 40/60
 87193fe
+Sun Apr 19 08:39:44 PM UTC 2026: 
+ hashmap.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:196:5: error: expected ‘;’ before ‘long’
+  196 |     long pos = 0;
+      |     ^~~~
+hashmap.c:199:25: error: ‘pos’ undeclared (first use in this function); did you mean ‘pow’?
+  199 |     while (map->buckets[pos] == NULL) {
+      |                         ^~~
+      |                         pow
+hashmap.c:199:25: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:206:1: error: control reaches end of non-void function [-Werror=return-type]
+  206 | }
+      | ^
+cc1: all warnings being treated as errors
+ce81f19

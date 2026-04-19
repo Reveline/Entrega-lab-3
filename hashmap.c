@@ -164,13 +164,19 @@ Pair * searchMap(HashMap * map,  char * key) {
 // Recuerde actualizar la variable size.
 
 void eraseMap(HashMap * map,  char * key) {    
+    // --- Verificacion ---
     if ((map == NULL) || (key==NULL)) return; // "Mapa" o la "Clave" no existen.
     if (map->capacity == 0) return; // "Mapa" no tiene capacidad.
 
-    Pair *current_bucket = searchMap(map,key);
+    // --- Declaracion punteros ---
+    Pair *current_bucket = searchMap(map,key); // Puntero temporal al contenedor con la clave (O valor nulo)
 
+    // --- Main ---
+
+    // Operacion cancelada
     if (current_bucket == NULL) return;
 
+    // Invalidacion de clave y reduccion del size
     current_bucket->key = NULL;
     
     map->size--;
@@ -183,8 +189,20 @@ void eraseMap(HashMap * map,  char * key) {
 // Recuerde actualizar el índice.
 
 Pair * firstMap(HashMap * map) {
-
-    return NULL;
+    if (map == NULL) return NULL;
+    if (map->capacity == 0) return NULL;
+    if (map->size == 0) return NULL
+        
+    long pos = 0;
+    
+    
+    while (map->buckets[pos] == NULL) {
+        pos = (pos + 1) % map->capacity;
+    }
+    
+    map->current = pos;
+    return map->buckets[pos];
+    /* return NULL; */
 }
 
 Pair * nextMap(HashMap * map) {
