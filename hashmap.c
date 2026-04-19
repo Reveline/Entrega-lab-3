@@ -73,10 +73,11 @@ void insertMap(HashMap * map, char * key, void * value) { // TODO VERIFICAR QUyA
     long pos = hash(key,map->capacity);
     long first_pos = pos;
     
-    while ((map->buckets[pos] != NULL) || (map->buckets[pos]]->key != NULL)){
+    while (map->buckets[pos] != NULL){ // Mientras la casilla actual no este vacio
+        if (map->buckets[pos]->key == NULL) break;
+        
         if (map->buckets[pos]->key != NULL) {
             if (strcmp(map->buckets[pos]->key, key) == 0) return;
-            break;
         }
         pos = (pos + 1) % map->capacity;
         if (pos == first_pos) return;
